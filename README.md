@@ -1,55 +1,55 @@
 # LITTLESTU (CodeIgniter 4)
 
-Aplikasi katalog daring dan panel admin untuk toko pakaian anak LITTLESTU, dibuat menggunakan CodeIgniter 4 dan MySQL/MariaDB. Pengunjung bisa melihat daftar koleksi, menelusuri lookbook dengan titik produk, memakai kalkulator ukuran anak, lalu melanjutkan pemesanan melalui Shopee, TikTok Shop, atau WhatsApp.
+Online catalog and admin panel for the LITTLESTU kidswear store, built with CodeIgniter 4 and MySQL/MariaDB. Visitors can browse products, check the lookbook with product hotspots, use the size calculator, and open purchase links on Shopee, TikTok Shop, or WhatsApp.
 
-## Tampilan aplikasi
+## Screenshots
 
-Halaman beranda:
+Storefront homepage:
 
-![Halaman beranda LITTLESTU](docs/screenshots/storefront-hero.png)
+![LITTLESTU storefront homepage](docs/screenshots/storefront-hero.png)
 
-Katalog produk:
+Product catalog:
 
-![Katalog produk LITTLESTU](docs/screenshots/storefront-catalog.png)
+![LITTLESTU product catalog](docs/screenshots/storefront-catalog.png)
 
-Dashboard admin:
+Admin dashboard:
 
-![Dashboard admin LITTLESTU](docs/screenshots/admin-dashboard.png)
+![LITTLESTU admin dashboard](docs/screenshots/admin-dashboard.png)
 
-## Catatan aset gambar
+## Note on product images
 
-Berkas foto produk di folder `public/images/` sengaja dikosongkan dan tidak disertakan di repositori ini (hanya `placeholder.svg` yang dipertahankan sebagai gambar cadangan). Untuk mengisi gambar produk, unggah langsung melalui panel admin atau letakkan berkas gambar di folder `public/images/`.
+Product photos in `public/images/` are intentionally omitted from this repository, with only `placeholder.svg` kept as a fallback. To populate product photos, upload them through the admin panel or place your image files inside `public/images/`.
 
-## Fitur
+## Features
 
-Halaman publik:
-- Katalog produk dengan penyaringan kategori, pencarian, dan pratinjau varian warna
-- Lookbook interaktif dengan titik hotspot yang mengarah ke detail produk
-- Kalkulator ukuran anak berdasarkan usia, tinggi badan, dan berat badan
-- Bagian ulasan pembeli, FAQ, dan formulir pendaftaran newsletter
-- Pencatatan tayangan produk serta klik tombol Shopee, TikTok Shop, dan WhatsApp
+Storefront:
+- Product catalog with category filtering, search, and color previews
+- Lookbook slides with clickable hotspots linked to product details
+- Kid size calculator based on age, height, and weight
+- Customer reviews, FAQs, and newsletter signup
+- Click and view tracking for Shopee, TikTok Shop, and WhatsApp links
 
-Panel admin (`/admin`):
-- Ringkasan statistik produk yang paling sering dilihat dan distribusi klik per kanal
-- Pengelolaan produk (tambah, ubah, aktif/nonaktif, hapus)
-- Pengelolaan slide lookbook beserta koordinat hotspot
-- Pengelolaan ulasan, FAQ, tabel panduan ukuran, dan teks pengaturan toko
-- Daftar pelanggan newsletter beserta ekspor ke format CSV
+Admin panel (`/admin`):
+- Store overview with top viewed products and click breakdown by channel
+- Product management (create, edit, toggle active status, delete)
+- Lookbook and hotspot coordinate editor
+- Management for reviews, FAQs, size guides, and store copy settings
+- Newsletter subscriber list with CSV export
 
-## Kebutuhan sistem
+## Requirements
 
-- PHP 8.2 atau lebih baru dengan ekstensi `intl`, `mbstring`, dan `mysqli`
+- PHP 8.2 or higher with `intl`, `mbstring`, and `mysqli` extensions enabled
 - Composer
-- MySQL atau MariaDB
+- MySQL or MariaDB
 
-## Cara menjalankan
+## Getting started
 
-1. Pasang dependensi PHP:
+1. Install PHP dependencies:
    ```bash
    composer install
    ```
 
-2. Salin berkas `env` menjadi `.env`, lalu sesuaikan `app.baseURL` dan konfigurasi database:
+2. Copy `env` to `.env`, then set `app.baseURL` and your database credentials:
    ```ini
    app.baseURL = 'http://localhost:8080/'
 
@@ -61,28 +61,28 @@ Panel admin (`/admin`):
    database.default.port = 3306
    ```
 
-3. Buat database kosong di MySQL/MariaDB, lalu jalankan migrasi dan seeder:
+3. Create an empty MySQL/MariaDB database, then run the migrations and seeder:
    ```bash
    php spark migrate
    php spark db:seed LittlestuSeeder
    ```
 
-4. Jalankan server lokal:
+4. Start the local development server:
    ```bash
    php spark serve
    ```
-   Jika port `8080` sedang dipakai, gunakan opsi `--port`:
+   If port `8080` is already in use, specify another port:
    ```bash
    php spark serve --port=8081
    ```
 
-Halaman publik bisa dibuka di `http://localhost:8080` dan halaman masuk admin di `http://localhost:8080/admin/login`.
+The storefront runs at `http://localhost:8080` and the admin login page is at `http://localhost:8080/admin/login`.
 
-## Akun admin bawaan
+## Default admin account
 
-Seeder `LittlestuSeeder` membuat satu akun admin awal:
+`LittlestuSeeder` creates one default admin account:
 
-- Username: `littlestu` (atau email `admin@littlestu.id`)
+- Username: `littlestu` (or email `admin@littlestu.id`)
 - Password: `admin`
 
-Segera ganti kata sandi ini sebelum aplikasi dipakai di lingkungan produksi.
+Change this password before deploying to production.
